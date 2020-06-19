@@ -1,7 +1,11 @@
 # taskmc
-Monte carlo estimation of completion dates for taskwarrior. Follows the idea of evidence-based scheduling promote by Joel Spolsky:
+Monte carlo estimation of completion dates based on past performance using Taskwarrior. 
+
+Implements the idea of evidence-based scheduling promoted by Joel Spolsky:
 
 https://www.joelonsoftware.com/2007/10/26/evidence-based-scheduling
+
+Requires [Taskwarrior](https://taskwarrior.org/) 2.4 or above and [Python 3](https://www.python.org/).
 
 # Install
 
@@ -55,19 +59,19 @@ alias taskmc='<directory>/taskmc.py'
 
 # Dependencies
 
-This script depends on python 3.7 or above and on the `taskw` python library:
+This script depends on Python 3.7 or above and on the `taskw` Python library:
 
 ```
 pip install taskw
 ```
 
-This script is made much more useful by the taskwarrior-time-tracking-hook script, available [here](https://github.com/kostajh/taskwarrior-time-tracking-hook):
+This script is made much more useful by the `taskwarrior-time-tracking-hook` python script, available [here](https://github.com/kostajh/taskwarrior-time-tracking-hook):
 
 ```
 pip install taskwarrior-time-tracking-hook
 ```
 
-If you install `taskwarrior-time-tracking-hook`, `taskw` will be installed for you.
+The pip script for `taskwarrior-time-tracking-hook` also installs `taskw` for you.
 
 
 # Usage
@@ -92,7 +96,7 @@ task <task ID> modify totalactivetime:<integer>seconds
 
 This may be abbreviated as `task <task ID> mod tot:<integer>s`.
 
-If you have `taskwarrior-time-tracking-hook` installed, you may update elapsed times more conveniently by calling `task <task ID> start` and `task <task ID> stop` before and after working on a task. These may be called an arbitrary number of times on the same task.
+If `taskwarrior-time-tracking-hook` is installed, elapsed times may be updated more conveniently by calling `task <task ID> start` and `task <task ID> stop` before and after working on a task. These may be called an arbitrary number of times on the same task.
 
 When a task is marked as completed (`task <task ID> done`), it begins to be used as a basis for estimating the accuracy of the time estimates and predicting the duration of the remaining tasks. 
 
